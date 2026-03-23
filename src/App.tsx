@@ -1,11 +1,10 @@
 import "./App.css";
+import Hero from "./sections/Hero";
 
 function App() {
 	return (
-		<main>
-			<div>
-				<h1 className="text-3xl font-bold underline">Hello world!</h1>
-			</div>
+		<main className="bg-gray-900 max-w-8xl mx-auto">
+			<Hero />
 		</main>
 	);
 }
