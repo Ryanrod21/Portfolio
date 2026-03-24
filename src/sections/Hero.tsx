@@ -1,19 +1,19 @@
-import Ry from "../../public/ry.png";
+import Ry from "../pic/ry.png";
 import { Sparkle, ArrowDown } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
 export default function Hero() {
 	return (
-		<section className="py-2">
-			<div className="container mx-auto px-6 text-center">
-				<div className="relative h-80 w-80 rounded-full flex items-center justify-center mx-auto mb-6">
+		<section className="py-10" id="home">
+			<div className=" mx-auto px-6 text-center">
+				<div className="relative h-80 w-80 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_40px_rgba(255,255,255,0.9)]">
 					<div className="absolute inset-0 rounded-full bg-teal-300 animate-pulse"></div>
 					<img
 						src={Ry}
 						alt="Ry"
-						className="relative h-[90%] w-[90%] object-cover rounded-full border-4 border-white shadow-lg"
+						className="relative h-[90%] w-[90%] object-cover rounded-full border-4 border-white "
 					/>
-					<div className="absolute bottom-0 w-1/2 text-center text-white font-bold bg-teal-700 rounded-b-full shadow-lg">
+					<div className="absolute bottom-0 w-1/2 text-center text-white font-bold bg-teal-700 rounded-b-full ">
 						Ryan Rodriguez
 					</div>
 					<div className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-green-500 animate-bounce flex items-center justify-center">

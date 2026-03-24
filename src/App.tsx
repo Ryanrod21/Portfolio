@@ -2,6 +2,7 @@ import "./App.css";
 import Hero from "./sections/Hero";
 import Projects from "./sections/Projects";
 import Tech from "./sections/Tech";
+import Contact from "./sections/Contact";
 
 function App() {
 	return (
@@ -9,6 +10,7 @@ function App() {
 			<Hero />
 			<Projects />
 			<Tech />
+			<Contact />
 		</main>
 	);
 }

@@ -11,7 +11,10 @@ export default function Projects() {
 				<h2 className="text-3xl font-bold mb-10 text-center text-white">
 					Projects
 				</h2>
-				<div className="flex items-center justify-center mb-10">
+				<div className="flex items-center justify-center mb-10 space-x-4">
+					<button className="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded mb-6">
+						All
+					</button>
 					<button className="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded mb-6">
 						<FaReact className="inline-block mr-2" />
 						React
