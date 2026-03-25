@@ -1,4 +1,4 @@
-import { techStack } from "../data/Tech";
+import Slider from "../components/Slider";
 
 export default function Tech() {
 	return (
@@ -10,20 +10,8 @@ export default function Tech() {
 				<p className="text-center text-white mb-10">
 					Here are some of the technologies I work with:
 				</p>
-				<div className="flex items-center justify-center space-x-4">
-					{techStack.map((tech) => (
-						<div
-							key={tech.id}
-							className="flex justify-center items-center space-y-1 border border-gray-700 rounded-lg w-25 h-10 bg-teal-800/20 hover:bg-teal-800/30 transition duration-300 "
-						>
-							<div className="flex items-center px-3 space-x-2">
-								{tech.icon}
 
-								<span className="text-white text-sm">{tech.name}</span>
-							</div>
-						</div>
-					))}
-				</div>
+				<Slider />
 			</div>
 		</section>
 	);
