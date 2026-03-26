@@ -1,4 +1,4 @@
-import Ry from "../pic/ry.png";
+import Ry from "../assets/ry.png";
 import { Sparkle, ArrowDown } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 

@@ -27,11 +27,17 @@ export default function Navbar() {
 						>
 							<p>Contact</p>
 						</a>
-
-						<button className="flex items-center space-x-2 bg-teal-300 hover:bg-teal-400 text-black px-2 py-1 rounded">
-							<Download className="h-3 w-3" />
-							<span>Resume</span>
-						</button>
+						<a
+							href="Ryan Rodriguez Frontend Developer Resume.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="bg-teal-300 hover:bg-teal-400 text-black px-2 py-1 rounded"
+						>
+							<div className="flex items-baseline justify-center space-x-1">
+								<Download className="h-3 w-3" />
+								<span>Resume</span>
+							</div>
+						</a>
 					</div>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
-import { Mail, Download } from "lucide-react";
+import { Download } from "lucide-react";
 
 export default function Contact() {
 	return (
@@ -24,10 +24,15 @@ export default function Contact() {
 							officialryanrod@gmail.com
 						</a>
 						<h2 className="text-xl font-bold mb-2 text-white">Resume</h2>
-						<button className="text-white hover:underline bg-teal-700 hover:bg-teal-800 px-2 py-1 rounded flex items-center space-x-2	">
+						<a
+							href="Ryan Rodriguez Frontend Developer Resume.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-white hover:underline bg-teal-700 hover:bg-teal-800 px-2 py-1 rounded flex items-center space-x-2"
+						>
 							<Download className="h-3 w-3" />
 							<span>Download Resume</span>
-						</button>
+						</a>
 					</div>
 					<div className="h-full flex flex-col items-start justify-start text-white space-y-5">
 						<h2 className="text-xl font-bold mb-2 text-white">

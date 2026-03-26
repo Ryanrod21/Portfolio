@@ -1,12 +1,13 @@
 import Card from "../components/Card";
-import { FaJs, FaReact, FaNodeJs, FaPython } from "react-icons/fa6";
+import { FaJs, FaReact, FaNodeJs } from "react-icons/fa6";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { BsTypescript } from "react-icons/bs";
 import { projects } from "../data/Projects";
+import Python from "../assets/python.svg";
 
 export default function Projects() {
 	return (
-		<section className="py-20" id="projects">
+		<section className="py-20  bg-teal-800/20" id="projects">
 			<div className="container mx-auto px-6">
 				<h2 className="text-3xl font-bold mb-10 text-center text-white">
 					Projects
@@ -40,7 +41,11 @@ export default function Projects() {
 						Node.js
 					</button>
 					<button className="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded mb-6 ml-4">
-						<FaPython className="inline-block mr-2 text-white" />
+						<img
+							src={Python}
+							alt="Python"
+							className="inline-block mr-2 w-5 h-5"
+						/>
 						Python
 					</button>
 				</div>
