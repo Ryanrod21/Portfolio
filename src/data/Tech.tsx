@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 import Python from "../assets/python.svg";
+import Typescript from "../assets/typescript.svg";
 
 import { FaReact, FaJs } from "react-icons/fa6";
 import {
@@ -9,7 +10,7 @@ import {
 	RiTailwindCssFill,
 	RiSupabaseFill,
 } from "react-icons/ri";
-import { BsTypescript, BsOpenai } from "react-icons/bs";
+import { BsOpenai } from "react-icons/bs";
 import { FaNodeJs, FaHtml5, FaCss3, FaHubspot } from "react-icons/fa6";
 import { SiMongodb, SiExpress } from "react-icons/si";
 
@@ -50,7 +51,13 @@ export const techStack: TechData[] = [
 	{
 		id: "5",
 		name: "TypeScript",
-		icon: <BsTypescript className="inline-block mr-2 text-blue-600 w-8 h-8 " />,
+		icon: (
+			<img
+				src={Typescript}
+				alt="TypeScript"
+				className="inline-block mr-2 w-8 h-8"
+			/>
+		),
 		for: "Language",
 	},
 	{
