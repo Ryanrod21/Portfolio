@@ -86,7 +86,7 @@ export const techStack: TechData[] = [
 		id: "9",
 		name: "Supabase",
 		icon: (
-			<RiSupabaseFill className="inline-block mr-2 text-blue-500 w-8 h-8" />
+			<RiSupabaseFill className="inline-block mr-2 text-green-500 w-8 h-8" />
 		),
 		for: "Database",
 	},
