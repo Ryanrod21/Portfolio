@@ -44,9 +44,14 @@ export default function Contact() {
               </div>
               <div className="flex flex-col items-start justify-center">
                 <p>Github</p>
-                <span className="text-sm text-gray-400">
+                <a
+                  href="https://github.com/Ryanrod21"
+                  className="text-sm text-gray-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   github.com/Ryanrod21
-                </span>
+                </a>
               </div>
             </div>
 
@@ -56,18 +61,16 @@ export default function Contact() {
               </div>
               <div className="flex flex-col items-start justify-center">
                 <p>Linkedin</p>
-                <span className="text-sm text-gray-400">
+                <a
+                  href="https://www.linkedin.com/in/ryan-rodriguez-0402281b9/"
+                  className="text-sm text-gray-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   linkedin.com/in/ryan-rodriguez-0402281b9/
-                </span>
+                </a>
               </div>
             </div>
-
-            {/* <div className="flex items-center space-x-3">
-							<Mail className="h-5 w-5 text-red-500 bg-white rounded-sm" />
-							<div>
-								<p>Email</p>
-							</div>
-						</div> */}
           </div>
         </div>
       </div>
