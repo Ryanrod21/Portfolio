@@ -127,6 +127,6 @@ export const projects: ProjectData[] = [
       'The portfolio you are viewing right now. Built from scratch with React and TypeScript, featuring an animated Vanta.js wave background, Framer Motion transitions, filterable project cards, and a fully responsive design.',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vanta.js'],
     image: Port,
-    gitLink: 'https://github.com/Ryanrod21/yourrepo',
+    gitLink: 'https://github.com/Ryanrod21/Portfolio',
   },
 ];
