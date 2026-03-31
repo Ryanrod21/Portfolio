@@ -3,7 +3,7 @@ import { Download } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section className="py-20 bg-[#0f172a]" id="contact">
+    <section className="py-20 bg-[#1e293b]" id="contact">
       <div className="mx-auto px-8 max-w-3xl">
         <h2 className="text-3xl font-bold mb-10 text-center text-white">
           Get in Touch

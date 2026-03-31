@@ -1,45 +1,99 @@
-import { Download } from 'lucide-react';
+import { useState } from 'react';
+import { Download, Menu, X } from 'lucide-react';
+import Ry from '../assets/ry_favicon.svg';
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="bg-black py-4 sticky top-0 w-full z-[99999] shadow-lg border-b border-teal-900/50">
+    <nav className="bg-black/80 backdrop-blur-md py-4 sticky top-0 w-full z-[99999] shadow-lg border-b border-teal-900/50">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          <div className="text-white font-bold text-xl">
-            <a href="#home">Ryan Rodriguez</a>
-          </div>
-          <div className="space-x-4 flex items-center justify-center text-white">
+          {/* Logo */}
+          <a
+            href="#home"
+            className="text-white font-bold text-xl flex items-center gap-2"
+          >
+            <img src={Ry} alt="Ry" className="h-6 w-6" />
+            Ryan Rodriguez
+          </a>
+
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-6 text-white">
+            <a
+              href="#about"
+              className="hover:text-teal-400 transition duration-300"
+            >
+              About
+            </a>
             <a
               href="#projects"
-              className="hover:underline transition duration-600 mt-0"
+              className="hover:text-teal-400 transition duration-300"
             >
-              <p>Projects</p>
+              Projects
             </a>
-            {/* <a
-							href="#experience"
-							className="hover:underline transition duration-600 mt-0"
-						>
-							<p>Experience</p>
-						</a> */}
             <a
               href="#contact"
-              className="hover:underline transition duration-600 mt-0"
+              className="hover:text-teal-400 transition duration-300"
             >
-              <p>Contact</p>
+              Contact
             </a>
             <a
               href="Ryan Rodriguez Frontend Developer Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-teal-300 hover:bg-teal-400 text-black px-2 py-1 rounded"
+              className="bg-teal-300 hover:bg-teal-400 text-black px-3 py-1.5 rounded flex items-center gap-1"
             >
-              <div className="flex items-baseline justify-center space-x-1">
-                <Download className="h-3 w-3" />
-                <span>Resume</span>
-              </div>
+              <Download className="h-3 w-3" />
+              Resume
             </a>
           </div>
+
+          {/* Hamburger button */}
+          <button
+            className="md:hidden text-white"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
+
+        {/* Mobile menu */}
+        {isOpen && (
+          <div className="md:hidden flex flex-col gap-4 pt-4 pb-2 text-white border-t border-teal-900/50 mt-4">
+            <a
+              href="#about"
+              onClick={() => setIsOpen(false)}
+              className="hover:text-teal-400 transition duration-300"
+            >
+              About
+            </a>
+            <a
+              href="#projects"
+              onClick={() => setIsOpen(false)}
+              className="hover:text-teal-400 transition duration-300"
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setIsOpen(false)}
+              className="hover:text-teal-400 transition duration-300"
+            >
+              Contact
+            </a>
+            <a
+              href="Ryan Rodriguez Frontend Developer Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="bg-teal-300 hover:bg-teal-400 text-black px-3 py-1.5 rounded flex items-center gap-2 w-fit"
+            >
+              <Download className="h-3 w-3" />
+              Resume
+            </a>
+          </div>
+        )}
       </div>
     </nav>
   );

@@ -6,6 +6,8 @@ import Travel from '../assets/travel.png';
 import Supplies from '../assets/supply.png';
 import GameHub from '../assets/game.jpg';
 import Flixx from '../assets/FlixxApp.jpg';
+import Gym from '../assets/gym.png';
+import Port from '../assets/port.png';
 
 export interface ProjectData {
   id: string;
@@ -18,14 +20,6 @@ export interface ProjectData {
 }
 
 export const projects: ProjectData[] = [
-  // {
-  // 	id: "1",
-  // 	title: "Interactive Scroll Animations Report Page",
-  // 	description:
-  // 		"Developed a visually engaging report page within HubSpot CMS, leveraging custom modules, JavaScript, and CSS to implement scroll-based animations. Smooth transitions and editable sections allow content editors to manage content easily.",
-  // 	tags: ["JavaScript", "CSS", "HubSpot CMS", "animation libraries"],
-  // 	link: "https://www.dsstpublicschools.org/2025-impact-report",
-  // },
   {
     id: '2',
     title: 'Automotive Website Redesign',
@@ -63,6 +57,16 @@ export const projects: ProjectData[] = [
     gitLink: 'https://github.com/TheRJRod/budget-AI',
   },
   {
+    id: '1',
+    title: 'Iron Path',
+    description:
+      'Developed a visually engaging report page within HubSpot CMS, leveraging custom modules, JavaScript, and CSS to implement scroll-based animations. Smooth transitions and editable sections allow content editors to manage content easily.',
+    tags: ['JavaScript', 'React', 'Python', 'OpenAI', 'Supabase'],
+    image: Gym,
+    link: 'https://iron-path-five.vercel.app/',
+    gitLink: 'https://github.com/Ryanrod21/Iron-Path',
+  },
+  {
     id: '6',
     title: 'FutureTravel',
     description:
@@ -84,14 +88,7 @@ export const projects: ProjectData[] = [
     title: 'Simple Supplies',
     description:
       'E-commerce store with top-rated featured products, dynamic search, and functional shopping cart.',
-    tags: [
-      'React',
-      'Next.js',
-      'JavaScript',
-      'CSS',
-      'Font Awesome',
-      'External APIs',
-    ],
+    tags: ['React', 'Next.js', 'MongoDB', 'JavaScript', 'CSS', 'Font Awesome'],
     image: Supplies,
     link: 'https://supplies-store.vercel.app/',
     gitLink: 'https://github.com/Ryanrod21/nextStore.git',
@@ -122,5 +119,14 @@ export const projects: ProjectData[] = [
     image: Flixx,
     link: 'https://movie-app-six-kohl-38.vercel.app/',
     gitLink: 'https://github.com/Ryanrod21/movie-app.git',
+  },
+  {
+    id: '10',
+    title: 'Personal Portfolio',
+    description:
+      'The portfolio you are viewing right now. Built from scratch with React and TypeScript, featuring an animated Vanta.js wave background, Framer Motion transitions, filterable project cards, and a fully responsive design.',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vanta.js'],
+    image: Port,
+    gitLink: 'https://github.com/Ryanrod21/yourrepo',
   },
 ];

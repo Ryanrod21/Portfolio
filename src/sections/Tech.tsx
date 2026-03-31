@@ -9,7 +9,7 @@ export default function Tech() {
   const databaseTech = techStack.filter((tech) => tech.for === 'Database');
 
   return (
-    <section className="py-20 bg-[#1e293b]">
+    <section className="py-20 bg-[#0f172a]" id="tech">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold mb-10 text-center text-white">
           Technologies
