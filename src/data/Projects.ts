@@ -87,7 +87,7 @@ export const projects: ProjectData[] = [
 		id: "7",
 		title: "Simple Supplies",
 		description:
-			"E-commerce store with top-rated featured products, dynamic search, and functional shopping cart.",
+			"A full-stack e-commerce store built with React, Next.js, and Express.js, backed by a MongoDB database. Browse top-rated featured products, search dynamically across the catalog, and manage your cart — all wrapped in a clean, responsive UI styled with CSS and Font Awesome.",
 		tags: [
 			"React",
 			"Next.js",
@@ -105,7 +105,7 @@ export const projects: ProjectData[] = [
 		id: "8",
 		title: "The GameHub",
 		description:
-			"Gaming dashboard for searching games, viewing details, and connecting with friends in real-time. Responsive dashboard with API integration.",
+			"A dynamic gaming dashboard built with React and Next.js, featuring real-time friend connectivity powered by Firebase. Search and explore games, view detailed game info, and stay connected with your network — all within a fully responsive interface backed by third-party API integration.",
 		tags: ["JavaScript", "React", "Next.js", "Firebase", "APIs"],
 		image: GameHub,
 		link: "https://gamer-hub-beta.vercel.app/",
@@ -115,7 +115,7 @@ export const projects: ProjectData[] = [
 		id: "9",
 		title: "Flixx App",
 		description:
-			"Movie exploration platform. Browse movies with cast, crew, reviews, and smooth touch-friendly carousels.",
+			"A movie exploration platform built with vanilla JavaScript and powered by external APIs. Discover movies and TV shows, dive into cast and crew details, read reviews, and browse trending titles through smooth, touch-friendly carousels built with Swiper.js — all styled with clean CSS and Font Awesome icons.",
 		tags: [
 			"HTML",
 			"CSS",
