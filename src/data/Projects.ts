@@ -60,7 +60,7 @@ export const projects: ProjectData[] = [
     id: '1',
     title: 'Iron Path',
     description:
-      'Developed a visually engaging report page within HubSpot CMS, leveraging custom modules, JavaScript, and CSS to implement scroll-based animations. Smooth transitions and editable sections allow content editors to manage content easily.',
+      'Full-stack gym application built with React and JavaScript on the frontend, powered by a Python backend with OpenAI and Supabase. Users get AI-generated personalized workout plans and can track their fitness progress over time.',
     tags: ['JavaScript', 'React', 'Python', 'OpenAI', 'Supabase'],
     image: Gym,
     link: 'https://iron-path-five.vercel.app/',
@@ -70,7 +70,7 @@ export const projects: ProjectData[] = [
     id: '6',
     title: 'FutureTravel',
     description:
-      'Interactive travel planning app with AI-powered personalized recommendations and high-quality images from Unsplash. Helps users plan trips effortlessly.',
+      'AI-powered travel planning app built with Next.js and React. Users get personalized trip recommendations from OpenAI, beautiful destination imagery from the Unsplash API, and seamless data storage with Firebase.',
     tags: [
       'React',
       'Next.js',
