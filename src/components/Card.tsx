@@ -35,7 +35,7 @@ export default function Card({
 
 	const defaultTagColor = "bg-gray-200 text-gray-800";
 	return (
-		<div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-[550px]">
+		<div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-[570px]">
 			<img
 				src={image ?? ""}
 				alt={title}
