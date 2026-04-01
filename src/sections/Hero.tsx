@@ -32,7 +32,7 @@ export default function Hero() {
           <p className="text-lg text-white mb-2 max-w-[600px] mx-auto text-outline">
             I'm not here to coast. I'm here to grow, contribute, and ship work
             that makes a difference. I learn fast, collaborate openly, and I
-            hold myself to a high standard — because good enough never is.
+            hold myself to a high standard — because good is never enough.
           </p>
 
           <div className="flex items-center justify-center space-x-5 mt-3">
