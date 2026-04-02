@@ -43,7 +43,7 @@ export const projects: ProjectData[] = [
 		title: "Learning Platform for Nursing Students",
 		description:
 			"AI-driven learning platform for nursing students. Users upload study materials to generate AI-powered quizzes and flashcards, including standard, case study, and NCLEX-style questions.",
-		tags: ["Next.js", "Tailwind CSS", "Supabase", "OpenAI", "custom CSS"],
+		tags: ["Next.js", "Tailwind CSS", "Supabase", "OpenAI"],
 		image: ScrubbedIn,
 		link: "https://study-app-ai.vercel.app/landing",
 	},
