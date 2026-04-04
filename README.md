@@ -8,7 +8,7 @@ A personal portfolio website showcasing my projects, skills, and experience as a
 
 ---
 
-## 👤 About Me
+## 🧑 About Me
 
 I'm Ryan Rodriguez — a Frontend Developer based in Corpus Christi, TX. Self-taught and bootcamp trained, I build things that work, look sharp, and solve real problems.
 
