@@ -19,9 +19,8 @@ export default function About() {
             <p className="text-left text-white text-lg max-w-3xl">
               I'm Ryan Rodriguez — a
               <span className="font-bold"> Frontend Developer</span> based in
-              Corpus Christi, TX, and I'm just getting started. Self-taught and
-              bootcamp trained, I build things that work, look sharp, and solve
-              real problems.
+              Corpus Christi, TX. Driven by curiosity and a commitment to craft,
+              I build things that work, look sharp, and solve real problems.
               <br />
               <br />I care about the details — the pixel that's off, the
               interaction that feels slow, the component that could be cleaner.
