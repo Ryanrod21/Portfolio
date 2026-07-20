@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface CardProps {
   title: string;
@@ -18,6 +18,33 @@ export default function Card({
   tags,
 }: CardProps) {
   const [open, setOpen] = useState(false);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(false);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const check = () => {
+      setShowLeft(el.scrollLeft > 0);
+      setShowRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+    };
+
+    check();
+    el.addEventListener('scroll', check);
+    window.addEventListener('resize', check);
+    return () => {
+      el.removeEventListener('scroll', check);
+      window.removeEventListener('resize', check);
+    };
+  }, [tags]);
+
+  const scrollRight = () =>
+    scrollRef.current?.scrollBy({ left: 100, behavior: 'smooth' });
+  const scrollLeft = () =>
+    scrollRef.current?.scrollBy({ left: -100, behavior: 'smooth' });
 
   const tagColors: Record<string, string> = {
     React: 'bg-blue-500 text-white',
@@ -81,15 +108,39 @@ export default function Card({
       </div>
 
       {tags && tags.length > 0 && (
-        <div className="px-4 pt-3 pb-2 flex flex-wrap gap-2">
-          {tags.map((tag, index) => (
-            <span
-              key={index}
-              className={`text-xs px-2 py-1 rounded ${tagColors[tag] ?? defaultTagColor}`}
+        <div className="px-4 pt-3 pb-2 relative flex items-center gap-1">
+          <div
+            ref={scrollRef}
+            className="flex gap-2 overflow-x-auto scrollbar-hide scroll-smooth"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {tags.map((tag, index) => (
+              <span
+                key={index}
+                className={`text-xs px-2 py-1 rounded whitespace-nowrap flex-shrink-0 ${tagColors[tag] ?? defaultTagColor}`}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {showRight && (
+            <button
+              onClick={scrollRight}
+              className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 text-xs transition-colors"
             >
-              {tag}
-            </span>
-          ))}
+              →
+            </button>
+          )}
+
+          {showLeft && (
+            <button
+              onClick={scrollLeft}
+              className="absolute left-4 flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 text-xs transition-colors"
+            >
+              ←
+            </button>
+          )}
         </div>
       )}
 
