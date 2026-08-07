@@ -132,15 +132,24 @@ export default function Card({
 						{problemDescription && solutionDescription ? (
 							<>
 								<p className="text-white text-lg sm:text-base p-1">
-									<strong>Problem:</strong> {problemDescription}
+									<strong>
+										<u>Problem:</u>
+									</strong>{" "}
+									{problemDescription}
 								</p>
 								<p className="text-white text-lg sm:text-base p-1">
-									<strong>Solution:</strong> {solutionDescription}
+									<strong>
+										<u>Solution:</u>
+									</strong>{" "}
+									{solutionDescription}
 								</p>
 							</>
 						) : (
 							<p className="text-white text-lg sm:text-base p-1">
-								<strong>Description:</strong> {currentDescription}
+								<strong>
+									<u>Description:</u>
+								</strong>{" "}
+								{currentDescription}
 							</p>
 						)}
 						<div className="flex items-center justify-center gap-3 py-2">
@@ -153,7 +162,7 @@ export default function Card({
 												(prev) => (prev - 1 + image.length) % image.length,
 											);
 										}}
-										className="flex-shrink-0 w-10 h-10 sm:w-5 sm:h-5 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-black text-lg transition-colors"
+										className="flex-shrink-0 w-3 h-3 sm:w-5 sm:h-5 md:w-7 md:h-7 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-black text-lg transition-colors"
 									>
 										←
 									</button>
@@ -165,7 +174,7 @@ export default function Card({
 											e.stopPropagation();
 											setImageIndex((prev) => (prev + 1) % image.length);
 										}}
-										className="flex-shrink-0 w-10 h-10 sm:w-5 sm:h-5 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-black text-lg transition-colors"
+										className="flex-shrink-0 w-3 h-3 sm:w-5 sm:h-5 md:w-7 md:h-7 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-black text-lg transition-colors"
 									>
 										→
 									</button>

@@ -36,27 +36,27 @@ export const projects: WorkingOnData[] = [
 				src: Cardapp2,
 				description: {
 					problem:
-						"Needed a way to search One Piece cards and display relevant details in one place",
+						"Needed a way to search One Piece cards and display relevant details in one place.",
 					solution:
-						"Built a search interface that queries the card database and renders image, character name, set, and rarity",
+						"Built a search interface that queries the card database and renders image, character name, set, and rarity.",
 				},
 			},
 			{
 				src: cardappAI,
 				description: {
 					problem:
-						"Needed to verify an AI agent could select the correct tool based on user input",
+						"Needed to verify an AI agent could select the correct tool based on user input.",
 					solution:
-						"Used one shot prompting to guide the agent it correctly identified and called the right tool to surface relevant cards",
+						"Used one shot prompting to guide the agent it correctly identified and called the right tool to surface relevant cards.",
 				},
 			},
 			{
 				src: cardappAI2,
 				description: {
 					problem:
-						"Relying solely on web search was accurate but token-heavy and costly. Also adjust prompt for agent to select right tools for the right task",
+						"Relying solely on web search was accurate but token-heavy and costly. Also adjust prompt for agent to select right tools for the right task.",
 					solution:
-						"Implemented a two-step tool chain database lookup first, web search as fallback which reduced token cost while still returning complete results like card price",
+						"Implemented a two-step tool chain database lookup first, using Laminar for tracing and debugging. Having the web search tool as fallback which reduced token cost while still returning complete results like card price.",
 				},
 			},
 		],
