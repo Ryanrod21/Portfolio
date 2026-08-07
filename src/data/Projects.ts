@@ -10,11 +10,16 @@ import Gym from '../assets/gym.png';
 import Port from '../assets/port.png';
 import CNM from '../assets/CNM.png';
 
+export interface ProjectImage {
+  src: string;
+  description?: string;
+}
+
 export interface ProjectData {
   id: string;
   title: string;
   description: string;
-  image?: string;
+  image?: ProjectImage[];
   link?: string;
   gitLink?: string;
   tags: string[];
@@ -36,7 +41,7 @@ export const projects: ProjectData[] = [
       'NeonDB',
       'Google Authentication',
     ],
-    image: CNM,
+    image: [{ src: CNM }],
     link: 'https://corpusnearme.com',
   },
   {
@@ -45,7 +50,7 @@ export const projects: ProjectData[] = [
     description:
       "Revamped the website's look and feel to align with the brand identity and improve customer acquisition. Built reusable custom modules and optimized performance, accessibility, and UX. Integrated with HubSpot CRM for lead capture and nurturing.",
     tags: ['HubSpot CMS', 'JavaScript', 'CSS', 'SEO', 'UX'],
-    image: Auto,
+    image: [{ src: Auto }],
     link: 'https://www.trueautoprotection.com/',
   },
   {
@@ -54,7 +59,7 @@ export const projects: ProjectData[] = [
     description:
       'Transformed an outdated website into a modern platform helping homeowners navigate warranty plans. Developed custom CMS modules with flexible layouts, interactive components, and optimized accessibility and responsiveness.',
     tags: ['HubSpot CMS', 'JavaScript', 'CSS', 'HubL', 'UX'],
-    image: Tribus,
+    image: [{ src: Tribus }],
     link: 'https://tribushomewarranty.com/',
   },
   {
@@ -63,7 +68,7 @@ export const projects: ProjectData[] = [
     description:
       'AI-driven learning platform for nursing students. Users upload study materials to generate AI-powered quizzes and flashcards, including standard, case study, and NCLEX-style questions.',
     tags: ['Next.js', 'Tailwind CSS', 'Supabase', 'OpenAI'],
-    image: ScrubbedIn,
+    image: [{ src: ScrubbedIn }],
     link: 'https://study-app-ai.vercel.app/landing',
   },
   {
@@ -72,7 +77,7 @@ export const projects: ProjectData[] = [
     description:
       'Full-stack MERN application for analyzing financial data and generating personalized AI-driven plans. Includes user database, RESTful APIs, secure authentication, and OpenAI integration for financial insights.',
     tags: ['MongoDB', 'Express.js', 'React', 'Node.js', 'OpenAI'],
-    image: BudgetAI,
+    image: [{ src: BudgetAI }],
     gitLink: 'https://github.com/TheRJRod/budget-AI',
   },
   {
@@ -81,7 +86,7 @@ export const projects: ProjectData[] = [
     description:
       'Full-stack gym application built with React and JavaScript on the frontend, powered by a Python backend with OpenAI and Supabase. Users get AI-generated personalized workout plans and can track their fitness progress over time.',
     tags: ['JavaScript', 'React', 'Python', 'OpenAI', 'Supabase'],
-    image: Gym,
+    image: [{ src: Gym }],
     link: 'https://iron-path-five.vercel.app/',
     gitLink: 'https://github.com/Ryanrod21/Iron-Path',
   },
@@ -98,7 +103,7 @@ export const projects: ProjectData[] = [
       'OpenAI',
       'Unsplash API',
     ],
-    image: Travel,
+    image: [{ src: Travel }],
     link: 'https://travel-app-azure-kappa.vercel.app/',
     gitLink: 'https://github.com/Ryanrod21/travel-app.git',
   },
@@ -116,7 +121,7 @@ export const projects: ProjectData[] = [
       'CSS',
       'Font Awesome',
     ],
-    image: Supplies,
+    image: [{ src: Supplies }],
     link: 'https://supplies-store.vercel.app/',
     gitLink: 'https://github.com/Ryanrod21/nextStore.git',
   },
@@ -126,7 +131,7 @@ export const projects: ProjectData[] = [
     description:
       'A dynamic gaming dashboard built with React and Next.js, featuring real-time friend connectivity powered by Firebase. Search and explore games, view detailed game info, and stay connected with your network — all within a fully responsive interface backed by third-party API integration.',
     tags: ['JavaScript', 'React', 'Next.js', 'Firebase', 'APIs'],
-    image: GameHub,
+    image: [{ src: GameHub }],
     link: 'https://gamer-hub-beta.vercel.app/',
     gitLink: 'https://github.com/Ryanrod21/GamerHub.git',
   },
@@ -143,7 +148,7 @@ export const projects: ProjectData[] = [
       'Swiper.js',
       'External APIs',
     ],
-    image: Flixx,
+    image: [{ src: Flixx }],
     link: 'https://movie-app-six-kohl-38.vercel.app/',
     gitLink: 'https://github.com/Ryanrod21/movie-app.git',
   },
@@ -153,7 +158,7 @@ export const projects: ProjectData[] = [
     description:
       'The portfolio you are viewing right now. Built from scratch with React and TypeScript, featuring an animated Vanta.js wave background, Framer Motion transitions, filterable project cards, and a fully responsive design.',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vanta.js'],
-    image: Port,
+    image: [{ src: Port }],
     gitLink: 'https://github.com/Ryanrod21/Portfolio',
   },
 ];

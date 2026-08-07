@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
+import type { ProjectImage } from '../data/Working';
 
 interface CardProps {
   title: string;
   description: string;
-  image: string;
+  image: ProjectImage[];
   link?: string;
   gitLink?: string;
   tags?: string[];
@@ -22,6 +23,8 @@ export default function Card({
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -66,13 +69,88 @@ export default function Card({
 
   const defaultTagColor = 'bg-gray-200 text-gray-800';
 
+  const currentImage = image[imageIndex];
+  const currentDescription = currentImage?.description ?? description;
+
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
       <img
-        src={image ?? ''}
+        src={currentImage.src ?? ''}
         alt={title}
-        className="w-full h-40 md:h-56 object-cover object-top"
+        className="w-full h-40 md:h-56 object-cover object-top cursor-pointer"
+        onClick={() => setIsZoomed(true)}
       />
+
+      {image.length > 1 && (
+        <div className="flex items-center justify-center gap-3 py-2 bg-gray-50 border-b">
+          <button
+            onClick={() =>
+              setImageIndex((prev) => (prev - 1 + image.length) % image.length)
+            }
+            className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 text-xs transition-colors"
+          >
+            ←
+          </button>
+          <span className="text-xs text-gray-500">
+            {imageIndex + 1} / {image.length}
+          </span>
+          <button
+            onClick={() => setImageIndex((prev) => (prev + 1) % image.length)}
+            className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 text-xs transition-colors"
+          >
+            →
+          </button>
+        </div>
+      )}
+
+      {isZoomed === true && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex flex-col gap-5 items-center justify-center "
+          onClick={() => setIsZoomed(false)}
+        >
+          <img
+            src={currentImage.src}
+            className="max-w-[80vw] max-h-[70vh] object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          <div className="w-full max-w-[80vw] bg-gray-600/80 flex flex-col rounded-md">
+            <p className="text-white text-lg p-1">
+              <strong>Description:</strong> {currentDescription}
+            </p>
+
+            <div className="flex items-center justify-center gap-3 py-2">
+              {image.length > 1 && (
+                <>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setImageIndex(
+                        (prev) => (prev - 1 + image.length) % image.length,
+                      );
+                    }}
+                    className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-black text-lg transition-colors"
+                  >
+                    ←
+                  </button>
+                  <span className="text-lg text-gray-300">
+                    {imageIndex + 1} / {image.length}
+                  </span>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setImageIndex((prev) => (prev + 1) % image.length);
+                    }}
+                    className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-black text-lg transition-colors"
+                  >
+                    →
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="p-4 flex-1">
         <div className="flex items-center justify-between mb-2">
@@ -103,7 +181,7 @@ export default function Card({
             open ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <p className="text-gray-600 text-sm pb-2">{description}</p>
+          <p className="text-gray-600 text-sm pb-2">{currentDescription}</p>
         </div>
       </div>
 
