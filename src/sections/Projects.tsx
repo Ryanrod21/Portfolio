@@ -158,7 +158,10 @@ export default function Projects() {
                   <Card
                     title={project.title}
                     description={project.description}
-                    image={project.image ?? []}
+                    image={(project.image ?? []).map((img) => ({
+                      src: [img.src],
+                      description: img.description,
+                    }))}
                     link={project.link}
                     gitLink={project.gitLink}
                     tags={project.tags}

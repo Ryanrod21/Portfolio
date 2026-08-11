@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import type { ProjectImage } from '../data/Working';
 
 interface CardProps {
@@ -69,7 +69,20 @@ export default function Card({
 
   const defaultTagColor = 'bg-gray-200 text-gray-800';
 
-  const currentImage = image[imageIndex];
+  const slides = useMemo(
+    () =>
+      image.flatMap((img) =>
+        img.src.map((src, i) => ({
+          src,
+          description: img.description,
+          positionInGroup: i,
+          groupLength: img.src.length,
+        })),
+      ),
+    [image],
+  );
+
+  const currentImage = slides[imageIndex];
 
   const currentDescription =
     typeof currentImage?.description === 'string'
@@ -92,6 +105,7 @@ export default function Card({
     typeof currentImage?.description === 'object'
       ? currentImage.description.solution
       : null;
+
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col w-[85vw] mx-auto md:w-full">
       <img
@@ -101,18 +115,20 @@ export default function Card({
         onClick={() => setIsZoomed(true)}
       />
 
-      {image.length > 1 && (
+      {slides.length > 1 && (
         <div className="flex items-center justify-center gap-3 py-2 bg-gray-50 border-b">
           <button
             onClick={() =>
-              setImageIndex((prev) => (prev - 1 + image.length) % image.length)
+              setImageIndex(
+                (prev) => (prev - 1 + slides.length) % slides.length,
+              )
             }
             className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 text-xs transition-colors"
           >
             ←
           </button>
           <span className="text-xs text-gray-500">
-            {imageIndex + 1} / {image.length}
+            {imageIndex + 1} / {slides.length}
           </span>
           <button
             onClick={() => setImageIndex((prev) => (prev + 1) % image.length)}
@@ -137,6 +153,12 @@ export default function Card({
             className="w-full max-w-[90vw] md:max-w-[80vw] bg-gray-600/80 flex flex-col rounded-md overflow-y-auto max-h-[50vh] md:max-h-[40vh]"
             onClick={(e) => e.stopPropagation()}
           >
+            {currentImage.groupLength > 1 && (
+              <span className="text-sm text-white w-full pt-1 pl-2">
+                Image {currentImage.positionInGroup + 1} of{' '}
+                {currentImage.groupLength}
+              </span>
+            )}
             {problemDescription && solutionDescription ? (
               <>
                 <p className="text-white text-sm sm:text-base p-2">
@@ -174,7 +196,7 @@ export default function Card({
                     onClick={(e) => {
                       e.stopPropagation();
                       setImageIndex(
-                        (prev) => (prev - 1 + image.length) % image.length,
+                        (prev) => (prev - 1 + slides.length) % slides.length,
                       );
                     }}
                     className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-black text-base transition-colors"
@@ -182,12 +204,12 @@ export default function Card({
                     ←
                   </button>
                   <span className="text-sm sm:text-base text-gray-300">
-                    {imageIndex + 1} / {image.length}
+                    {imageIndex + 1} / {slides.length}
                   </span>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setImageIndex((prev) => (prev + 1) % image.length);
+                      setImageIndex((prev) => (prev + 1) % slides.length);
                     }}
                     className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-black text-base transition-colors"
                   >
