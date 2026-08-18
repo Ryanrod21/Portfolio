@@ -107,7 +107,7 @@ export default function Card({
       : null;
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col w-[85vw] mx-auto md:w-full">
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col w-[85vw] mx-auto md:w-full h-full">
       <img
         src={currentImage.src ?? ''}
         alt={title}
@@ -115,29 +115,33 @@ export default function Card({
         onClick={() => setIsZoomed(true)}
       />
 
-      {slides.length > 1 && (
-        <div className="flex items-center justify-center gap-3 py-2 bg-gray-50 border-b">
-          <button
-            onClick={() =>
-              setImageIndex(
-                (prev) => (prev - 1 + slides.length) % slides.length,
-              )
-            }
-            className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 text-xs transition-colors"
-          >
-            ←
-          </button>
-          <span className="text-xs text-gray-500">
-            {imageIndex + 1} / {slides.length}
-          </span>
-          <button
-            onClick={() => setImageIndex((prev) => (prev + 1) % image.length)}
-            className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 text-xs transition-colors"
-          >
-            →
-          </button>
-        </div>
-      )}
+      <div className="h-[34px] flex items-center justify-center gap-3 py-2 bg-gray-50 border-b">
+        {slides.length > 1 && (
+          <>
+            <button
+              onClick={() =>
+                setImageIndex(
+                  (prev) => (prev - 1 + slides.length) % slides.length,
+                )
+              }
+              className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 text-xs transition-colors"
+            >
+              ←
+            </button>
+            <span className="text-xs text-gray-500">
+              {imageIndex + 1} / {slides.length}
+            </span>
+            <button
+              onClick={() =>
+                setImageIndex((prev) => (prev + 1) % image.length)
+              }
+              className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 text-xs transition-colors"
+            >
+              →
+            </button>
+          </>
+        )}
+      </div>
 
       {isZoomed === true && (
         <div
@@ -306,30 +310,28 @@ export default function Card({
         </div>
       )}
 
-      {(link || gitLink) && (
-        <div className="px-3 py-3 border-t flex flex-wrap gap-2 sm:px-4 sm:gap-3">
-          {link && (
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs px-3 py-1 sm:text-sm sm:px-4 sm:py-1.5 rounded-full border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition"
-            >
-              View Project
-            </a>
-          )}
-          {gitLink && (
-            <a
-              href={gitLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs px-3 py-1 sm:text-sm sm:px-4 sm:py-1.5 rounded-full border border-gray-500 text-gray-500 hover:bg-gray-500 hover:text-white transition"
-            >
-              View Code
-            </a>
-          )}
-        </div>
-      )}
+      <div className="px-3 py-3 border-t flex flex-wrap gap-2 sm:px-4 sm:gap-3 mt-auto">
+        {link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs px-3 py-1 sm:text-sm sm:px-4 sm:py-1.5 rounded-full border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition"
+          >
+            View Project
+          </a>
+        )}
+        {gitLink && (
+          <a
+            href={gitLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs px-3 py-1 sm:text-sm sm:px-4 sm:py-1.5 rounded-full border border-gray-500 text-gray-500 hover:bg-gray-500 hover:text-white transition"
+          >
+            View Code
+          </a>
+        )}
+      </div>
     </div>
   );
 }

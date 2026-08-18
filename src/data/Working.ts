@@ -1,11 +1,3 @@
-import Cardapp1 from '../assets/cardapp1.png';
-import Cardapp2 from '../assets/cardapp2.png';
-import cardappAI from '../assets/cardappAI.png';
-import cardappAI2 from '../assets/cardappAI2.png';
-import cardappg from '../assets/cardappg.png';
-import cardapps from '../assets/cardapps.png';
-import cardappfail from '../assets/cardappfail.png';
-import cardappfailA from '../assets/cardappfailA.png';
 import cli1 from '../assets/cli1.png';
 import cli2 from '../assets/cli2.png';
 import cli3 from '../assets/cli3.png';
@@ -33,79 +25,6 @@ export interface WorkingOnData {
 }
 
 export const projects: WorkingOnData[] = [
-  {
-    id: '1',
-    title: 'Trading Card AI Predictor App',
-    description:
-      'Working on making an app for card games and collections like the One Piece card game and Sports cards. The AI agent will help users find the price, market and details of each card they desire. The AI will also pull data on the market and the latest news.',
-    tags: ['TypeScript', 'React', 'AI intergration', 'Evaluations', 'Open AI'],
-    image: [
-      { src: [Cardapp1] },
-      {
-        src: [Cardapp2],
-        description: {
-          description:
-            'A One Piece trading card agent search app that displays card details in a clean, browsable interface. Users can quickly look up a card and see its image, character, set, and rarity at a glance.',
-          problem:
-            'Needed a way to search One Piece cards and display relevant details in one place. Card data was scattered across multiple sources, making it hard for the AI agent to reliably pull consistent information.',
-          solution:
-            'Built a search interface that queries the card database and renders image, character name, set, and rarity in a single view. This gave the AI agent a structured, reliable source of card data to draw from.',
-        },
-      },
-      {
-        src: [cardappAI],
-        description: {
-          description:
-            "An AI agent demo that uses one shot prompting to correctly identify and call the right tool based on user input. The agent interprets the user's request and routes it to the appropriate lookup tool automatically.",
-          problem:
-            'Needed to verify an AI agent could reliably select the correct tool based on user input, rather than defaulting to a single tool for every query. Ambiguous prompts made this decision inconsistent early on.',
-          solution:
-            'Used one shot prompting to guide the agent aso it consistently identified and called the right tool to surface relevant cards. This improved the reliability of the tool selection step before scaling to more complex chains.',
-        },
-      },
-      {
-        src: [cardappAI2],
-        description: {
-          description:
-            'An optimized AI agent that chains a database lookup with a web search fallback, cutting token cost while maintaining full result accuracy. The agent checks the internal database first and only falls back to web search when needed.',
-          problem:
-            "Relying solely on web search was accurate but token-heavy and costly, and the agent's prompt needed adjustment so it picked the right tool for each task. Using web search for every query was an inefficient use of tokens when much of the data already existed internally.",
-          solution:
-            "Implemented a two step tool chain database lookup first, using Laminar for tracing and debugging, with web search as a fallback which reduced token cost while still returning complete results like card price. Laminar's tracing made it easier to pinpoint where the agent's tool selection needed tuning.",
-        },
-      },
-      {
-        src: [cardappg],
-        description: {
-          description:
-            'The Golden Eval test. Validates the agent returns accurate One Piece news with no collection filter applied a general query baseline test.',
-          problem:
-            'Needed a reliable baseline to confirm the agent fetches and structures news correctly before any user-specific filtering is introduced.',
-          solution:
-            'Golden eval runs a broad query with no filters, validating item count, summary quality, and source attribution against expected output.',
-        },
-      },
-      {
-        src: [cardapps],
-        description: {
-          description: `The Secondary Eval test. Checks the behavior of the agent when it recieves little detial about a card. `,
-          problem:
-            'Without an OP set specified, the agent could fail to return results or pull irrelevant data, leaving the user with an incomplete response.',
-          solution:
-            'Secondary eval confirms the agent still returns valid structured results across any matching cards when only a name is provided, ensuring broad queries are handled correctly.',
-        },
-      },
-      {
-        src: [cardappfail, cardappfailA],
-        description: {
-          description: `The Negative Eval test. Checks if the agent responds with bad input, which the agent shouldn't answer it and give a message saying invalid input. If there is any invalid inputs or made up names that the agent recieves. The agent should compare the input with any One Piece related cards and if they don't match then return nothing. Also if the users collection is empty to return nothing.`,
-          problem: `Image 1 of 2. When having an empty collection or the collection showing there is somthing but its an empty string (' ') the agent would respond with something random with One Piece Cards. Second problem was when you gave the agent random input and numbpers (Example: asdfasdf 2323) the agent would try to find something that that was close to the random input `,
-          solution: `Image 2 of 2. Shows that the agent responded with nothing and with that the agent passes the test. The solution for this was pretty simple, on top of the agent prompt I told the agent not to respond to any empty collections or strings or any invalid input. I also told the agent to use the websearch to match and see if it could find the card. If the agent coudln't then don't respond.
-                     Having a check like this on top of the prompt is key, we don't want the agent to go through a whole proccess if it doesn't need to.`,
-        },
-      },
-    ],
-  },
   {
     id: '2',
     title: 'CLI Logging Agent',

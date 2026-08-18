@@ -154,14 +154,12 @@ export default function Projects() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="h-full"
                 >
                   <Card
                     title={project.title}
                     description={project.description}
-                    image={(project.image ?? []).map((img) => ({
-                      src: [img.src],
-                      description: img.description,
-                    }))}
+                    image={project.image ?? []}
                     link={project.link}
                     gitLink={project.gitLink}
                     tags={project.tags}
